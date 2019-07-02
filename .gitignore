@@ -1,0 +1,9 @@
+# Project exclude paths
+/.idea/
+/.cache
+/dist
+/node_modules/
+
+# Project exclude files
+.DS_Store
+npm-debug.log*

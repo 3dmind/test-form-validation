@@ -1,0 +1,38 @@
+{
+  "name": "test-form-validation",
+  "version": "1.0.0",
+  "description": "Form validation with Formik and folktale.",
+  "main": "src/index.html",
+  "scripts": {
+    "clean": "rimraf -rf {.cache,dist}",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ./"
+  },
+  "keywords": [
+    "forms",
+    "validation",
+    "formik",
+    "folktale"
+  ],
+  "author": "Christian Wlatschiha <c.wlatschiha@gmail.com>",
+  "license": "LICENSE SEE IN LICENSE",
+  "dependencies": {
+    "@material-ui/core": "^4.1.3",
+    "@material-ui/icons": "^4.2.1",
+    "folktale": "^2.3.2",
+    "formik": "^1.5.7",
+    "formik-material-ui": "0.0.18",
+    "ramda": "^0.26.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.10",
+    "@types/ramda": "^0.26.12",
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
+    "parcel-bundler": "^1.12.3",
+    "rimraf": "^2.6.3"
+  }
+}
