@@ -1,20 +1,28 @@
 import { Formik } from 'formik'
 import React from 'react'
 import { useActions } from '../useActions'
+import { useNotifications } from '../useNotifications'
 import { UserForm } from './UserForm'
 
 export function UserFormController () {
+  const { saveUserAction } = useActions()
+  const { enqueueError, enqueueSuccess } = useNotifications()
   const initialValues = {
     name: '',
     password: '',
   }
 
-  const { saveUserAction } = useActions()
-
   function handleSubmit (formValues, formikActions) {
-    saveUserAction(formValues).then(function onFulfilled () {
-      formikActions.setSubmitting(false)
-    })
+    saveUserAction(formValues)
+      .then(function onFulfilled () {
+        enqueueSuccess('User successfully created.')
+      })
+      .catch(function onRejected () {
+        enqueueError('User could not be created.')
+      })
+      .finally(function onFinally () {
+        formikActions.setSubmitting(false)
+      })
   }
 
   return (
