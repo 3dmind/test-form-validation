@@ -5,7 +5,7 @@ import { UserForm } from './UserForm'
 
 export function UserFormController () {
   const { saveUserAction } = useActions()
-  const { enqueueError, enqueueSuccess } = useNotifications()
+  const { enqueueErrorNotification, enqueueSuccessNotification } = useNotifications()
   const initialValues = {
     name: '',
     password: '',
@@ -14,10 +14,10 @@ export function UserFormController () {
   function handleSubmit (formValues, formikActions) {
     saveUserAction(formValues)
       .then(function onFulfilled () {
-        enqueueSuccess('User successfully created.')
+        enqueueSuccessNotification('User successfully created.')
       })
       .catch(function onRejected () {
-        enqueueError('User could not be created.')
+        enqueueErrorNotification('User could not be created.')
       })
       .finally(function onFinally () {
         formikActions.setSubmitting(false)

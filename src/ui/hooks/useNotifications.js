@@ -2,8 +2,8 @@ import { Button } from '@material-ui/core'
 import { useSnackbar } from 'notistack'
 import React from 'react'
 
-function createSnackbarOptions (defaultOptions, successOptions) {
-  return Object.assign({}, defaultOptions, successOptions)
+function createSnackbarOptions (defaultOptions, options) {
+  return Object.assign({}, defaultOptions, options)
 }
 
 export function useNotifications () {
@@ -26,16 +26,16 @@ export function useNotifications () {
   }
 
   return {
-    enqueueSuccess (message = '') {
+    enqueueSuccessNotification (successMessage = '') {
       const successOptions = { variant: 'success' }
       const options = createSnackbarOptions(defaultOptions, successOptions)
-      enqueueSnackbar(message, options)
+      enqueueSnackbar(successMessage, options)
     },
 
-    enqueueError (message = '') {
+    enqueueErrorNotification (errorMessage = '') {
       const errorOptions = { variant: 'error' }
       const options = createSnackbarOptions(defaultOptions, errorOptions)
-      enqueueSnackbar(message, options)
+      enqueueSnackbar(errorMessage, options)
     },
   }
 }
