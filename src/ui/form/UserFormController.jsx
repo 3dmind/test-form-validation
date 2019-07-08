@@ -1,7 +1,6 @@
 import { Formik } from 'formik'
 import React from 'react'
-import { useActions } from '../useActions'
-import { useNotifications } from '../useNotifications'
+import { useActions, useNotifications } from '../hooks'
 import { UserForm } from './UserForm'
 
 export function UserFormController () {
