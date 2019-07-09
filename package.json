@@ -1,7 +1,12 @@
 {
+  "private": true,
   "name": "test-form-validation",
   "version": "1.0.0",
   "description": "Form validation with Formik and folktale.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3dmind/test-form-validation.git"
+  },
   "main": "src/index.html",
   "scripts": {
     "clean": "rimraf -rf {.cache,dist}",
