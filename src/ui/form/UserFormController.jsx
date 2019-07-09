@@ -2,6 +2,7 @@ import { Formik } from 'formik'
 import React from 'react'
 import { useActions, useNotifications } from '../hooks'
 import { UserForm } from './UserForm'
+import { UserFormValidationUiService } from './UserFormValidationUiService'
 
 export function UserFormController () {
   const { saveUserAction } = useActions()
@@ -24,11 +25,16 @@ export function UserFormController () {
       })
   }
 
+  function validateForm (formValues) {
+    return UserFormValidationUiService.validate(formValues)
+  }
+
   return (
     <Formik
-      onSubmit={handleSubmit}
       initialValues={initialValues}
       component={UserForm}
+      validate={validateForm}
+      onSubmit={handleSubmit}
     />
   )
 }

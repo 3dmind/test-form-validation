@@ -4,8 +4,9 @@ import { TextField } from 'formik-material-ui'
 import React from 'react'
 
 export function UserForm (props) {
-  const { dirty, handleReset, isSubmitting } = props
+  const { dirty, handleReset, isSubmitting, isValid } = props
   const isResetButtonDisabled = isSubmitting || !dirty
+  const isSubmitButtonDisabled = isSubmitting || !isValid
 
   return (
     <Form>
@@ -39,7 +40,7 @@ export function UserForm (props) {
                 variant="outlined"
                 color="primary"
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitButtonDisabled}
               >
                 Send
               </Button>
