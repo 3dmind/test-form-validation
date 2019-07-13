@@ -1,4 +1,4 @@
-import { FormValidationUiService } from '../../services'
+import { FormValidationUiService } from '../../services/validation'
 
 function validateName (value) {
   return FormValidationUiService
