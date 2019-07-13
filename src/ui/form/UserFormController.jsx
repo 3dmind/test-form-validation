@@ -16,6 +16,7 @@ export function UserFormController () {
     saveUserAction(formValues)
       .then(function onFulfilled () {
         enqueueSuccessNotification('User successfully created.')
+        formikActions.resetForm()
       })
       .catch(function onRejected () {
         enqueueErrorNotification('User could not be created.')
