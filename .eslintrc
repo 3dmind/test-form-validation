@@ -1,0 +1,54 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "prettier",
+    "react"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/all",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "react/forbid-component-props": 0,
+    "react/jsx-max-depth": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-indent": [
+      2,
+      2
+    ],
+    "react/jsx-indent-props": [
+      2,
+      2
+    ],
+    "react/jsx-max-props-per-line": [
+      1,
+      {
+        "when": "multiline"
+      }
+    ],
+    "react/jsx-sort-props": [
+      2,
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "noSortAlphabetically": true
+      }
+    ]
+  }
+}
