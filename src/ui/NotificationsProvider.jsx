@@ -4,6 +4,7 @@ import ErrorIcon from '@material-ui/icons/Error'
 import InfoIcon from '@material-ui/icons/Info'
 import WarningIcon from '@material-ui/icons/Warning'
 import { SnackbarProvider } from 'notistack'
+import * as PropTypes from 'prop-types'
 import React from 'react'
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export function NotificationsProvider (props) {
+export function NotificationsProvider(props) {
+  const { children } = props
   const classes = useStyles()
   return (
     <SnackbarProvider
@@ -28,7 +30,11 @@ export function NotificationsProvider (props) {
         info: <InfoIcon className={classes.icon} />,
       }}
     >
-      {props.children}
+      {children}
     </SnackbarProvider>
   )
+}
+
+NotificationsProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 }

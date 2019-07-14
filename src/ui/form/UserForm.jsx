@@ -1,9 +1,10 @@
 import { Button, Grid } from '@material-ui/core'
 import { Field, Form } from 'formik'
 import { TextField } from 'formik-material-ui'
+import * as PropTypes from 'prop-types'
 import React from 'react'
 
-export function UserForm (props) {
+export function UserForm(props) {
   const { dirty, handleReset, isSubmitting, isValid } = props
   const isResetButtonDisabled = isSubmitting || !dirty
   const isSubmitButtonDisabled = isSubmitting || !isValid
@@ -13,22 +14,22 @@ export function UserForm (props) {
       <Grid container spacing={2}>
         <Grid item md xs={12}>
           <Field
+            fullWidth
             name="name"
             label="Name"
             type="text"
             variant="filled"
-            fullWidth
             component={TextField}
           />
         </Grid>
 
         <Grid item md xs={12}>
           <Field
+            fullWidth
             name="password"
             label="Password"
             type="text"
             variant="filled"
-            fullWidth
             component={TextField}
           />
         </Grid>
@@ -42,7 +43,7 @@ export function UserForm (props) {
                 type="submit"
                 disabled={isSubmitButtonDisabled}
               >
-                Send
+                {'Send'}
               </Button>
             </Grid>
             <Grid item>
@@ -52,7 +53,7 @@ export function UserForm (props) {
                 disabled={isResetButtonDisabled}
                 onClick={handleReset}
               >
-                Reset
+                {'Reset'}
               </Button>
             </Grid>
           </Grid>
@@ -60,4 +61,11 @@ export function UserForm (props) {
       </Grid>
     </Form>
   )
+}
+
+UserForm.propTypes = {
+  dirty: PropTypes.bool.isRequired,
+  handleReset: PropTypes.func.isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
+  isValid: PropTypes.bool.isRequired,
 }
