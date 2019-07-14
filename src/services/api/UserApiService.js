@@ -1,7 +1,7 @@
 import { ApiService } from './ApiService'
 
 export const UserApiService = {
-  saveUser (data) {
+  saveUser(data) {
     return ApiService.post('/users', data)
   },
 }

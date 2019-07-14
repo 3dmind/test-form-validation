@@ -4,29 +4,32 @@ import { useActions, useNotifications } from '../hooks'
 import { UserForm } from './UserForm'
 import { UserFormValidationUiService } from './UserFormValidationUiService'
 
-export function UserFormController () {
+export function UserFormController() {
   const { saveUserAction } = useActions()
-  const { enqueueErrorNotification, enqueueSuccessNotification } = useNotifications()
+  const {
+    enqueueErrorNotification,
+    enqueueSuccessNotification,
+  } = useNotifications()
   const initialValues = {
     name: '',
     password: '',
   }
 
-  function handleSubmit (formValues, formikActions) {
+  function handleSubmit(formValues, formikActions) {
     saveUserAction(formValues)
-      .then(function onFulfilled () {
+      .then(function onFulfilled() {
         enqueueSuccessNotification('User successfully created.')
         formikActions.resetForm()
       })
-      .catch(function onRejected () {
+      .catch(function onRejected() {
         enqueueErrorNotification('User could not be created.')
       })
-      .finally(function onFinally () {
+      .finally(function onFinally() {
         formikActions.setSubmitting(false)
       })
   }
 
-  function validateForm (formValues) {
+  function validateForm(formValues) {
     return UserFormValidationUiService.validate(formValues)
   }
 

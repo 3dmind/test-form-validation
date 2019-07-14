@@ -3,29 +3,30 @@ import * as R from 'ramda'
 
 const isNotEmpty = R.complement(R.isEmpty)
 
-function emptyMessage () {
+function emptyMessage() {
   return {}
 }
 
-function getErrorMessage (failedValidation) {
+function getErrorMessage(failedValidation) {
   return failedValidation.value
 }
 
-function mapValidationMessagesToErrorMessage (validationMessages) {
-  return R.mapObjIndexed((messages) => R.head(messages))(R.reduceBy(
-    (acc, { message }) => acc.concat(message),
-    [],
-    ({ fieldName }) => fieldName,
-    validationMessages,
-  ))
+function mapValidationMessagesToErrorMessage(validationMessages) {
+  return R.mapObjIndexed((messages) => R.head(messages))(
+    R.reduceBy(
+      (acc, { message }) => acc.concat(message),
+      [],
+      ({ fieldName }) => fieldName,
+      validationMessages,
+    ),
+  )
 }
 
 export const FormValidationUiService = {
   collectValidations: Validation.collect,
 
-  collectFieldErrorMessages (validations = []) {
-    return Validation
-      .collect(validations)
+  collectFieldErrorMessages(validations = []) {
+    return Validation.collect(validations)
       .mapFailure(mapValidationMessagesToErrorMessage)
       .matchWith({
         Success: emptyMessage,
@@ -34,37 +35,39 @@ export const FormValidationUiService = {
   },
 
   validations: {
-    notEmpty ({ fieldName, value, message = '' }) {
+    notEmpty({ fieldName, value, message = '' }) {
       return isNotEmpty(R.trim(value))
         ? Validation.Success(value)
         : Validation.Failure([
-          {
-            fieldName,
-            message: message || `Field '${fieldName}' can't be empty.`,
-          },
-        ])
+            {
+              fieldName,
+              message: message || `Field '${fieldName}' can't be empty.`,
+            },
+          ])
     },
 
-    minLength ({ fieldName, min, value, message = '' }) {
+    minLength({ fieldName, min, value, message = '' }) {
       return R.length(value) >= min
         ? Validation.Success(value)
         : Validation.Failure([
-          {
-            fieldName,
-            message: message || `Field '${fieldName}' must have at least ${min} characters.`,
-          },
-        ])
+            {
+              fieldName,
+              message:
+                message ||
+                `Field '${fieldName}' must have at least ${min} characters.`,
+            },
+          ])
     },
 
-    matches ({ fieldName, regex, value, message = '' }) {
+    matches({ fieldName, regex, value, message = '' }) {
       return R.test(regex, value)
         ? Validation.Success(value)
         : Validation.Failure([
-          {
-            fieldName,
-            message: message || `Field '${fieldName}' must match ${regex}`,
-          },
-        ])
+            {
+              fieldName,
+              message: message || `Field '${fieldName}' must match ${regex}`,
+            },
+          ])
     },
   },
 }

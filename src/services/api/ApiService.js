@@ -5,10 +5,10 @@ const api = axios.create({
 })
 
 api.interceptors.response.use(
-  function onFulfilled (response) {
+  function onFulfilled(response) {
     return response.data
   },
-  function onRejected (error) {
+  function onRejected(error) {
     return Promise.reject(error)
   },
 )
