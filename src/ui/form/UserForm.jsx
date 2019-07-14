@@ -3,6 +3,7 @@ import { Field, Form } from 'formik'
 import { TextField } from 'formik-material-ui'
 import * as PropTypes from 'prop-types'
 import React from 'react'
+import { UserFormPasswordField } from './UserFormPasswordField'
 
 export function UserForm(props) {
   const { dirty, handleReset, isSubmitting, isValid } = props
@@ -24,14 +25,7 @@ export function UserForm(props) {
         </Grid>
 
         <Grid item md xs={12}>
-          <Field
-            fullWidth
-            name="password"
-            label="Password"
-            type="text"
-            variant="filled"
-            component={TextField}
-          />
+          <UserFormPasswordField />
         </Grid>
 
         <Grid item xs={12}>
