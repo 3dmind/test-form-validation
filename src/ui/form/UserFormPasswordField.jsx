@@ -1,4 +1,4 @@
-import { IconButton, InputAdornment } from '@material-ui/core'
+import { IconButton, InputAdornment, Tooltip } from '@material-ui/core'
 import VisibilityIcon from '@material-ui/icons/Visibility'
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
 import { Field } from 'formik'
@@ -14,6 +14,7 @@ export function UserFormPasswordField() {
 
   const inputType = showPassword ? 'text' : 'password'
   const icon = showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />
+  const tooltipTitle = showPassword ? 'Hide password' : 'Show password'
   return (
     <Field
       fullWidth
@@ -25,9 +26,11 @@ export function UserFormPasswordField() {
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <IconButton edge="end" onClick={handleClick}>
-              {icon}
-            </IconButton>
+            <Tooltip title={tooltipTitle}>
+              <IconButton edge="end" onClick={handleClick}>
+                {icon}
+              </IconButton>
+            </Tooltip>
           </InputAdornment>
         ),
       }}
