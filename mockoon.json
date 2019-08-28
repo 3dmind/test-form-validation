@@ -1,0 +1,56 @@
+{
+    "id": "mockoon_export",
+    "appVersion": "1.4.0",
+    "checksum": "dac445273b2ebf9ee03f406cff41fece",
+    "subject": "full",
+    "data": [
+        {
+            "uuid": "8ca92410-c981-11e9-9d95-c1ff1c628796",
+            "name": "test-form-validation",
+            "endpointPrefix": "api",
+            "latency": 0,
+            "port": 3001,
+            "routes": [
+                {
+                    "uuid": "8ca94b20-c981-11e9-9d95-c1ff1c628796",
+                    "documentation": "",
+                    "method": "post",
+                    "endpoint": "users",
+                    "body": "{\n    \"success\": true\n}",
+                    "latency": 0,
+                    "statusCode": "200",
+                    "headers": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "filePath": "",
+                    "sendFileAsBody": false
+                }
+            ],
+            "proxyMode": false,
+            "proxyHost": "",
+            "https": false,
+            "cors": true,
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                },
+                {
+                    "key": "Access-Control-Allow-Methods",
+                    "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+                },
+                {
+                    "key": "Access-Control-Allow-Headers",
+                    "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+                }
+            ]
+        }
+    ]
+}
