@@ -1,11 +1,10 @@
 theme: Work, 3
 slidenumbers: true
 slidecount: true
-header: #ffffff, SF Pro Display Bold
-text: #ffffff, SF Pro Display Regular
-text-emphasis: #ffffff, SF Pro Display Italic
+header: #ffffff, Helvetica Bold
+text: #ffffff, Helvetica
 code: SF Mono
-footer: React Meetup August 2019 | Form validation with Formik and Folktale | Christian Wlatschiha
+footer: Form validation with Formik and Folktale | Christian Wlatschiha
 
 [.slidenumbers: false]
 # [fit] Form validation<br>with<br>Formik and Folktale
@@ -129,8 +128,11 @@ function validateForm(formValues) {
 ## Data Structures
 
 - maybe
+    A data structure that models the presence or absence of a value.
 - result
+    A data structure that models the result of operations that may fail.
 - validation
+    A data structure to aggregate **all** failures
 
 ---
 
@@ -145,23 +147,6 @@ function validateForm(formValues) {
 ---
 
 # Example
-
----
-
-## Libraries and Tools
-
-- ramda
-- material-ui
-- formik-material-ui
-- notistack
-- axios
-- Mockoon
-
----
-
-#### Structure
-
-![fit, original](structure.png)
 
 ---
 
